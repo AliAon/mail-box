@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  src: url('../../public/assets/fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Inter_SemiBold";
+  src: url('../../public/assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf') format('truetype');
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.inter_SemiBold{
+  font-family: Inter_SemiBold;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
