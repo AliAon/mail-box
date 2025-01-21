@@ -3,7 +3,7 @@ import { ArrowDown, ChevronDown, EllipsisVertical, RotateCw } from "lucide-react
 
 export default function Trash() {
   return (
-    <div>
+    <div className="px-4 py-10">
       {/* header */}
       <div className="flex justify-between items-center">
         <div className="flex gap-x-4 items-center">
@@ -13,7 +13,7 @@ export default function Trash() {
           </div>
           <div className="flex gap-x-2  items-center">
             <RotateCw size={20}/>
-            <EllipsisVertical size={25}/>
+             <EllipsisVertical size={25}/>
           </div>
         </div>
         <div></div>

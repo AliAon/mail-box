@@ -42,7 +42,7 @@ export default function Layout({ children }) {
             className={`w-full min-h-screen  transition-all duration-300  overflow-y-scroll pb-2 md:pb-5 `}
           >
             <Navbar toggleSidebar={toggleSidebar} />
-            <div className="mt-2">
+            <div className="mt-2 bg-white">
               {/* {pathname !== "/dashboard" && (
                 <DynamicBreadcrumb items={breadcrumbItems} />
               )} */}
