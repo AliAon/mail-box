@@ -1,8 +1,4 @@
 import React from "react";
-import LoginForm from "./SignupForm";
-import { Button } from "../ui/button";
-import SocialButtons from "./SocialButtons";
-import SignupForm from "./SignupForm";
 import ResetPasswordForm from "./ResetPasswordForm";
 
 export default function ResetPassword() {

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Label } from "../ui/label";
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import OtpTimer from "../common/timer";
 import { useTimer } from "react-timer-hook";
 import Link from "next/link";
 const OtpInput = dynamic(() => import("react-otp-input"), { ssr: false });

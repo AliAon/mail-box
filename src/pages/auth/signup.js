@@ -1,9 +1,8 @@
 import SignupBase from "@/components/AuthForm/SignupBase";
 import Link from "next/link";
-import AuthLayout from "@/components/layout/AuthLayout";
 export default function Signup() {
   return (
-    <AuthLayout>
+    // <AuthLayout>
      
      <div className="md:overflow-y-scroll md:h-[75vh] create_account_scroll">
 
@@ -19,6 +18,6 @@ export default function Signup() {
         </Link>
       </p>
       </div>
-    </AuthLayout>
+    // </AuthLayout>
   );
 }

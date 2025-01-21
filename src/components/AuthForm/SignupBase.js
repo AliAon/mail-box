@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import SocialButtons from "./SocialButtons";
 import SignupForm from "./SignupForm";
 import SignupEmailForm from "./SignupEmailForm";
-import email_to from "../../../public/assets/jpg/email_to.jpg"
-import personal_info from "../../../public/assets/png/personal_info.png";
-import Image from "next/image";
 
 export default function SignupBase() {
   const [currentFields, setNextFields] = useState(false);
