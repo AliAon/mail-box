@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { SideBar } from "@/components/common/side-bar";
 import { Navbar } from "@/components/common/navbar";
+import ChatWidget from "@/components/chat-widget";
 // import DynamicBreadcrumb from "../ui/bread-curmbs-layout";
 
 const generateBreadcrumbItems = (pathname) => {
@@ -48,6 +49,8 @@ export default function Layout({ children }) {
               )} */}
               <div className="mt-2">{children}</div>
             </div>
+            <ChatWidget/>
+
           </div>
         </div>
       ) : (

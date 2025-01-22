@@ -26,7 +26,7 @@ import SearchBox from "@/components/search-box";
 export function Navbar({ toggleSidebar }) {
   return (
     <div className="h-[72px] px-2 md:px-4 flex items-center justify-between">
-      <div className="block md:hidden">
+      {/* <div className="block md:hidden">
         <Image
           src={"/assets/png/logo.png"}
           alt=""
@@ -34,7 +34,7 @@ export function Navbar({ toggleSidebar }) {
           height={117}
           className="w-[188px]"
         />
-      </div>
+      </div> */}
       <div className="hidden md:flex items-center space-x-2">
         <SearchBox />
       </div>

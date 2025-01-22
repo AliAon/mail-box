@@ -149,7 +149,9 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
                       </p>
                     </div>
 
-                    <div className={`count-data ${isOpen ? "block" : "hidden"}`}>
+                    <div
+                      className={`count-data ${isOpen ? "block" : "hidden"}`}
+                    >
                       {item.count && (
                         <div className="w-fit float rounded px-2 flex justify-end py-1  bg-[#3587d0] text-white font-bold">
                           <p className="text-xs">{item.count}</p>
@@ -164,10 +166,10 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
         ))}
 
         {/* Categories */}
-        <div className={`my-4 ${isOpen ? "block" : "hidden" }`}>
+        <div className={`my-4 ${isOpen ? "block" : "hidden"}`}>
           <Disclosure as="div" defaultOpen={true}>
             <DisclosureButton className="group flex p-4 w-full bg-[#f1eeff]  items-center justify-between">
-              <p className="font-semibold text-md text-[#747070] ">
+              <p className="inter_SemiBold text-md text-[#747070] ">
                 Categories
               </p>
 
@@ -177,12 +179,24 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
               transition
               className="origin-top p-6  transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0"
             >
-              <p className="text-md mb-3 inter_SemiBold text-[#747070]">
-                Amsterdam
-              </p>
-              <p className="text-md  inter_SemiBold text-[#747070]">
-                Rotterdam
-              </p>
+              <ul>
+                <li className="mb-2">
+                  <Link
+                    href="/dashboard/amsterdam"
+                    className="text-md mb-3 inter_SemiBold text-[#747070]"
+                  >
+                    Amsterdam
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/dashboard/rotterdam"
+                    className="text-md  inter_SemiBold text-[#747070]"
+                  >
+                    Rotterdam
+                  </Link>
+                </li>
+              </ul>
             </DisclosurePanel>
           </Disclosure>
         </div>
@@ -190,13 +204,15 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
         {/* online */}
         <div className={`${isOpen ? "block" : "hidden"} bg-[#f1eeff] p-4`}>
           <div className="flex justify-between">
-            <p className="font-semibold text-md">Chats</p>
+            <p className="inter_SemiBold text-md">Chats</p>
             <span className="flex font-semibold items-center">
               <GoDotFill color="green" /> Online
             </span>
           </div>
         </div>
-        <div className={`${isOpen ? "block" : "hidden"} p-4 flex flex-col gap-10`}>
+        <div
+          className={`${isOpen ? "block" : "hidden"} p-4 flex flex-col gap-10`}
+        >
           {/* chatParticipants */}
 
           <ul className="flex my-4 flex-col gap-y-5">
@@ -221,10 +237,12 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
           </ul>
           {/* Compose */}
 
+          <Link href={'/dashboard/compose'}>
           <Button className="py-6 inter_SemiBold w-full bg-primary ">
             <FaEnvelope />
             Compose
           </Button>
+          </Link>
           <div className="flex gap-2">
             <Image width={40} height={30} src={offImg} alt="" />
             <div className="flex flex-col">
