@@ -35,7 +35,7 @@ const ChatWidget = () => {
           onClick={() => setIsOpen(true)}
           className="rounded-full text-white"
         >
-          <Image src={chtimg}   width={50} height={50}/>
+          <Image src={chtimg}  alt="" width={50} height={50}/>
         </button>
       )}
 
