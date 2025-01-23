@@ -21,9 +21,9 @@ import React, { useState } from "react";
 export default function Dashboard() {
   const [active,setActive]=useState(1)
   return (
-    <div className="px-2 md:px-4 py-8 pb-6 bg-[#f2f6f9]">
+    <div className="py-8 pb-6 bg-[#f2f6f9]">
       {/* header */}
-      <div className="flex pb-5 justify-between items-center">
+      <div className="flex  px-4 pb-5 justify-between items-center">
         <div className="flex gap-x-4 items-center">
           <div className="flex items-end">
             <Checkbox name="check" />

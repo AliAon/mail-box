@@ -106,7 +106,7 @@ const ChatItem = () => {
     {messages.map((message) => (
       <Link href={'/dashboard/chats'} key={message.id} className="relative group">
         <div
-          className="flex group-hover:bg-gray-200 cursor-pointer items-center justify-between hover:border-b hover-border-t border-b border-t border-gray-300 py-4"
+          className="flex group-hover:bg-gray-200 px-4 cursor-pointer items-center justify-between hover:border-b hover-border-t border-b border-t border-gray-300 py-4"
         >
           <div className="flex items-center gap-4">
             <input
