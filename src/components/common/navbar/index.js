@@ -1,15 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import React from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Card } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,12 +9,27 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, EllipsisVertical, FolderMinus, NotebookPen, Tag } from "lucide-react";
+import {
+  ChevronDown,
+  EllipsisVertical,
+  FolderMinus,
+  Moon,
+  NotebookPen,
+  Sun,
+  Tag,
+} from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import SearchBox from "@/components/search-box";
+import { useTheme } from "next-themes";
 
 export function Navbar({ toggleSidebar }) {
+  const { setTheme } = useTheme();
+  const handleCheckedChange = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  }
+
+
   return (
     <div className="h-[72px] px-2 md:px-4 flex items-center justify-between">
       {/* <div className="block md:hidden">
@@ -47,26 +53,24 @@ export function Navbar({ toggleSidebar }) {
           >
             Dark Mode
           </Label>
-          <Switch id="dark-mode" />
+          <Switch
+            id="dark-mode"
+            onCheckedChange={handleCheckedChange}
+          />
         </div>
         <div className="xl:flex items-center space-x-2 hidden">
-          <NotebookPen  color="#858d9d"/> 
+          <NotebookPen color="#858d9d" />
         </div>
         <div className="xl:flex items-center space-x-2 hidden">
-          <FolderMinus color="#858d9d"/> 
+          <FolderMinus color="#858d9d" />
         </div>
         <div className="xl:flex items-center space-x-2 hidden">
-          <Tag color="#858d9d"/> 
+          <Tag color="#858d9d" />
         </div>
-       
-         
 
         <div className="hidden md:block">
           <DropdownMenu>
-            <DropdownMenuTrigger
-              asChild
-              className=" p-2 bg-white"
-            >
+            <DropdownMenuTrigger asChild className=" p-2 bg-white">
               <div className="flex items-center space-x-2 cursor-pointer">
                 <EllipsisVertical className="h-8 w-8 opacity-50" />
               </div>

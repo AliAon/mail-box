@@ -5,7 +5,7 @@ import signIn from "../../public/assets/png/signin.png";
 export default function SinIn() {
   return (
     <div className="lg:w-[80%] w-[90%] h-screen mx-auto">
-      <div className="grid md:grid-cols-2 grid-cols-1 h-screen">
+      <div className="grid md:grid-cols-2 gap-x-16 grid-cols-1 h-screen">
         <div className="md:flex items-center hidden justify-center">
           <Image src={signIn} alt="" width={500} height={500} className="w-full h-[80vh]"/> 
         </div>
