@@ -38,12 +38,12 @@ export default function Layout({ children }) {
           <SideBar isOpen={isOpen} toggleSidebar={toggleSidebar} setIsOpen={setIsOpen}/>
           <div
           style={{
-            marginLeft: isOpen ? "265px" : "70px",
+            marginLeft: isOpen ? "270px" : "70px",
           }}
             className={`w-full min-h-screen  transition-all duration-300  overflow-y-scroll pb-2 md:pb-5 `}
           >
             <Navbar toggleSidebar={toggleSidebar} />
-            <div className="mt-2 bg-white">
+            <div className="bg-white">
               {/* {pathname !== "/dashboard" && (
                 <DynamicBreadcrumb items={breadcrumbItems} />
               )} */}

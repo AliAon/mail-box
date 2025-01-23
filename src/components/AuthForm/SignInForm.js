@@ -14,12 +14,12 @@ export default function SignInForm() {
     <>
       <form className="w-[90%]">
         <div className=" py-2">
-          <Input type="text" className="w-full h-14 !text-[1.2rem] border-black border-t-0 border-r-0 border-l-0 rounded-none" placeholder="Email ID" />
+          <Input type="text" className="w-full  !px-0 !py-0 !text-[1.2rem] border-black  border-t-0 border-r-0 border-l-0 rounded-none  " placeholder="Email ID" />
         </div>
 
-        <div className=" py-2 ">
+        <div className=" py-2 my-[25px] ">
           <div className="relative">
-            <Input type={type} className="w-full h-14 !text-[1.2rem] border-black border-t-0 border-r-0 border-l-0 rounded-none" placeholder="Password" />
+            <Input type={type} className="w-full !px-0 !text-[1.2rem] border-black border-t-0 border-r-0 border-l-0 rounded-none" placeholder="Password" />
             {type == "password" ? (
               <FaRegEye
                 className="absolute right-2 top-3 cursor-pointer"

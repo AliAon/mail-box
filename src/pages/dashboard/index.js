@@ -1,4 +1,3 @@
-import ChatWidget from "@/components/chat-widget";
 import ChatItem from "@/components/inbox/chatItem";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -20,13 +19,21 @@ import React, { useState } from "react";
 
 export default function Dashboard() {
   const [active,setActive]=useState(1)
+  const [ischeck,setIsCheck]=useState(false)
+  console.log("ischeck",ischeck)
   return (
-    <div className="py-8 pb-6 bg-[#f2f6f9]">
+    <div className="py-6 pb-6 px-0 bg-[#f2f6f9]">
       {/* header */}
-      <div className="flex  px-4 pb-5 justify-between items-center">
+      <div className="flex  pl-6 pr-2 pb-5 justify-between items-center">
         <div className="flex gap-x-4 items-center">
           <div className="flex items-end">
-            <Checkbox name="check" />
+            <Checkbox 
+            onCheckedChange={(value) => {
+              setIsCheck(value)
+
+            }}
+            
+            name="check" />
             <ChevronDown size={15} />
           </div>
           <div className="flex gap-x-2  items-center">
@@ -36,7 +43,7 @@ export default function Dashboard() {
         </div>
         <div className="flex gap-x-2">
           <Select>
-            <SelectTrigger className="w-[100px]">
+            <SelectTrigger className="w-[100px] bg-[#f2f6f9] text-[#747070] font-semibold border-0">
               <SelectValue placeholder="By Date" />
             </SelectTrigger>
             <SelectContent>
@@ -46,7 +53,7 @@ export default function Dashboard() {
             </SelectContent>
           </Select>
           <Select>
-            <SelectTrigger className="w-[100px]">
+            <SelectTrigger className="w-[100px] text-[#747070] font-semibold bg-[#f2f6f9] border-0">
               <SelectValue placeholder="Newest" />
             </SelectTrigger>
             <SelectContent>
@@ -57,7 +64,7 @@ export default function Dashboard() {
           </Select>
         </div>
       </div>
-      <ChatItem />
+      <ChatItem onIsCheck={ischeck} />
 
       <div className="flex my-10 gap-x-2 justify-center">
         <Button onClick={() => setActive(0)} variant={`${active===0 ? 'default':'outline'}`}  className={`${active===0 ? 'bg-[#7f63f4]':'bg-[#f2f6f9]' } hover:bg-primary hover:text-white`} size="icon">

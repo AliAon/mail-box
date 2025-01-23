@@ -1,37 +1,23 @@
-import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import Image from "next/image";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  ChevronDown,
-  EllipsisVertical,
-  FolderMinus,
-  Moon,
-  NotebookPen,
-  Sun,
-  Tag,
-} from "lucide-react";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
-import SearchBox from "@/components/search-box";
 import { useTheme } from "next-themes";
-
+import ThemeSwitch from "@/components/theme-switch";
+import { Switch } from "@headlessui/react";
 export function Navbar({ toggleSidebar }) {
   const { setTheme } = useTheme();
-  const handleCheckedChange = (checked) => {
-    setTheme(checked ? "dark" : "light");
-  }
+  // const handleCheckedChange = (checked) => {
+  //   setTheme(checked ? "dark" : "light");
+  // };
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleCheckedChange = (checked) => {
+    setIsDarkMode(checked);
+    // Additional logic for theme toggle can be added here.
+  };
 
   return (
-    <div className="h-[72px] px-2 md:px-4 flex items-center justify-between">
+    <div className="h-[65px] px-2 pt-2 md:px-6 flex items-center justify-between">
       {/* <div className="block md:hidden">
         <Image
           src={"/assets/png/logo.png"}
@@ -42,32 +28,47 @@ export function Navbar({ toggleSidebar }) {
         />
       </div> */}
       <div className="hidden md:flex items-center space-x-2">
-        <SearchBox />
+        {/* <SearchBox /> */}
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search"
+            className="search placeholder:text-[#747070]"
+          />
+          <img src="./assets/png/search.png" alt="" />
+        </div>
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="xl:flex items-center space-x-2 hidden">
-          <Label
-            htmlFor="dark-mode"
-            className="text-sm font-medium text-[#858D9D] cursor-pointer"
-          >
-            Dark Mode
-          </Label>
-          <Switch
-            id="dark-mode"
-            onCheckedChange={handleCheckedChange}
-          />
+        <div className="xl:flex items-center gap-x-6 space-x-2 hidden">
+         
+
+          <div>
+            <img src="./assets/png/nav-icon1.png" alt="" width="20px" />
+          </div>
+          <div>
+            <img src="./assets/png/nav-icon3.png" alt="" width="25px" />
+          </div>
+          <div>
+            <img src="./assets/png/nav-icon4.png" alt="" width="25px" />
+          </div>
+          <div>
+            <img src="./assets/png/nav-icon5.png" alt="" width="20px" />
+          </div>
+          <div>
+            <img src="./assets/png/nav-icon2.png" alt="" width="6px" />
+          </div>
         </div>
-        <div className="xl:flex items-center space-x-2 hidden">
+        {/* <div className="xl:flex items-center space-x-2 hidden">
           <NotebookPen color="#858d9d" />
         </div>
         <div className="xl:flex items-center space-x-2 hidden">
           <FolderMinus color="#858d9d" />
-        </div>
-        <div className="xl:flex items-center space-x-2 hidden">
+        </div> */}
+        {/* <div className="xl:flex items-center space-x-2 hidden">
           <Tag color="#858d9d" />
-        </div>
-
+        </div> */}
+        {/* 
         <div className="hidden md:block">
           <DropdownMenu>
             <DropdownMenuTrigger asChild className=" p-2 bg-white">
@@ -82,7 +83,7 @@ export function Navbar({ toggleSidebar }) {
               <DropdownMenuItem>Billing</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-        </div>
+        </div> */}
         <Image
           src={"/assets/svg/side-bar/Collaps.svg"}
           alt=""

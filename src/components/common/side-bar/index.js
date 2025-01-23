@@ -15,40 +15,50 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Button } from "@/components/ui/button";
-
+import inboxImg from "../../../../public/assets/png/inbox.png";
+import inboxImgActive from "../../../../public/assets/png/inbox_blue.png";
+import sent from "../../../../public/assets/png/sent.png";
+import sentActive from "../../../../public/assets/png/sentActive.png"
+import star from "../../../../public/assets/png/star.png";
+import starActive from "../../../../public/assets/png/starActive.png";
+import drafts from "../../../../public/assets/png/drafts.png";
+import draftsActive from "../../../../public/assets/png/draftsActive.png"
+import trash from "../../../../public/assets/png/trash.png";
+import trashActive from "../../../../public/assets/png/trashActive.png"
 const lists = [
   {
     list: [
       {
         name: "Inbox",
-        icon: <Inbox color="#747070" size={23} />,
-        activeIcon: <Inbox size={23} color="#7f63f4" />,
+        icon: inboxImg,
+        activeIcon: inboxImgActive,
         href: "/dashboard",
         count: "12",
       },
+
       {
         name: "Sent",
-        icon: <SendHorizontal color="#747070" size={23} />,
-        activeIcon: <SendHorizontal size={23} color="#7f63f4" />,
+        icon: sent,
+        activeIcon: sentActive,
         href: "/dashboard/sent",
       },
       {
         name: "Important",
-        icon: <FaStar color="#747070" size={23} />,
-        activeIcon: <FaStar size={23} color="#7f63f4" />,
+        icon: star,
+        activeIcon: starActive,
         href: "/dashboard/important",
         count: "01",
       },
       {
         name: "Drafts",
-        icon: <GrDocument color="#747070" size={23} />,
-        activeIcon: <GrDocument size={23} />,
+        icon: drafts,
+        activeIcon: draftsActive,
         href: "/dashboard/draft",
       },
       {
         name: "Trash",
-        icon: <FaTrash color="#747070" size={23} />,
-        activeIcon: <FaTrash size={23} />,
+        icon: trash,
+        activeIcon: trashActive,
         href: "/dashboard/trash",
       },
     ],
@@ -83,13 +93,13 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
     <div
       className={`w-[80%] md:w-[40%] fixed left-0 top-0 flex flex-col bg-white h-screen transition-all  z-10 duration-300 ${
         isOpen
-          ? "lg:w-[265px] -translate-x-0 lg:translate-x-0 "
+          ? "lg:w-[272px] -translate-x-0 lg:translate-x-0 "
           : "-translate-x-full lg:translate-x-0 lg:w-[70px] items-center px-0"
       }`}
     >
       <div
-        className={`flex items-center justify-between py-5 ${
-          isOpen ? "px-4" : "px-6"
+        className={`flex items-center justify-between py-[23px] ${
+          isOpen ? "pl-8 pr-4" : "px-6"
         }   bg-primary gap-3 `}
       >
         {/* <Logo isOpen={isOpen} /> */}
@@ -131,17 +141,26 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
                     href={item.href}
                     key={index}
                     onClick={handleClick}
-                    className={`group flex items-center justify-between border-white border-4 gap-4 hover:bg-gray-200 hover:border-gray-200  px-4 cursor-pointer ${
+                    className={`group flex items-center justify-between border-white border-4 gap-4 hover:bg-gray-200 hover:border-gray-200 hover:border-l-[#7f63f4] hover:border-l-4   pl-6 pr-4 cursor-pointer ${
                       isActive
-                        ? "border-l-4  border-t-4 border-b-4 border-r-4 bg-gray-200  border-t-transparent border-b-transparent border-r-transparent border-l-[#7f63f4] "
+                        ? "border-l-4  border-t-4 border-b-4 border-r-4  border-t-transparent border-b-transparent border-r-transparent border-l-[#7f63f4] "
                         : ""
-                    }  ${isOpen ? "py-4" : "py-4"}`}
+                    }  ${isOpen ? "py-5" : "py-5"}`}
                   >
                     <div className="flex items-center gap-4">
-                      {isActive ? item.activeIcon : item.icon}
+                      {isActive ? (
+                        <Image src={item.activeIcon} width={20} height={20} alt="" />
+                      ) : (
+                        <Image
+                          src={item.icon}
+                          width={20}
+                          height={20}
+                          alt=""
+                        />
+                      )}
 
                       <p
-                        className={`text-md  inter_SemiBold ${
+                        className={`text-[15px] hover:text-[#0a58ca] inter_SemiBold ${
                           isActive ? "text-primary" : "text-[#747070]"
                         } ${isOpen ? "block" : "hidden"}`}
                       >
@@ -153,7 +172,7 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
                       className={`count-data ${isOpen ? "block" : "hidden"}`}
                     >
                       {item.count && (
-                        <div className="w-fit float rounded px-2 flex justify-end py-1  bg-[#3587d0] text-white font-bold">
+                        <div className={`w-fit float rounded px-2 flex justify-end py-1 ${ item.count === '12' ? "bg-[#3587d0]" : "bg-[#258373]"}   text-white font-bold`}>
                           <p className="text-xs">{item.count}</p>
                         </div>
                       )}
@@ -169,7 +188,7 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
         <div className={`my-4 ${isOpen ? "block" : "hidden"}`}>
           <Disclosure as="div" defaultOpen={true}>
             <DisclosureButton className="group flex p-4 w-full bg-[#f1eeff]  items-center justify-between">
-              <p className="inter_SemiBold text-md text-[#747070] ">
+              <p className="inter_SemiBold text-[15px] text-[#747070] ">
                 Categories
               </p>
 
@@ -183,7 +202,7 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
                 <li className="mb-2">
                   <Link
                     href="/dashboard/amsterdam"
-                    className="text-md mb-3 inter_SemiBold text-[#747070]"
+                    className="text-[15px] mb-3 inter_SemiBold text-[#747070]"
                   >
                     Amsterdam
                   </Link>
@@ -191,7 +210,7 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
                 <li>
                   <Link
                     href="/dashboard/rotterdam"
-                    className="text-md  inter_SemiBold text-[#747070]"
+                    className="text-[15px]  inter_SemiBold text-[#747070]"
                   >
                     Rotterdam
                   </Link>
@@ -204,8 +223,8 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
         {/* online */}
         <div className={`${isOpen ? "block" : "hidden"} bg-[#f1eeff] p-4`}>
           <div className="flex justify-between">
-            <p className="inter_SemiBold text-md">Chats</p>
-            <span className="flex font-semibold items-center">
+            <p className="inter_SemiBold text-[15px]">Chats</p>
+            <span className="flex font-semibold text-[15px] items-center">
               <GoDotFill color="green" /> Online
             </span>
           </div>
@@ -237,14 +256,14 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
           </ul>
           {/* Compose */}
 
-          <Link href={'/dashboard/compose'}>
-          <Button className="py-6 inter_SemiBold w-full bg-primary ">
-            <FaEnvelope />
-            Compose
-          </Button>
+          <Link href={"/dashboard/compose"}>
+            <Button className="py-6 text-[15px] inter_SemiBold w-full bg-primary ">
+              <FaEnvelope />
+              Compose
+            </Button>
           </Link>
           <div className="flex gap-2">
-            <Image width={40} height={30} src={offImg} alt="" />
+            <Image width={30} height={30} src={offImg} alt="" className="w-[40px] h-[40px]" />
             <div className="flex flex-col">
               <p className="text-sm text-[#212529]">Antonie Piedanna</p>
               <p className="text-sm text-[#212529]">antoine@icloud.com</p>
