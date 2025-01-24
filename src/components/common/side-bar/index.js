@@ -91,10 +91,10 @@ export function SideBar({ isOpen, toggleSidebar, setIsOpen }) {
 
   return (
     <div
-      className={`w-[80%] md:w-[40%] fixed left-0 top-0 flex flex-col bg-white h-screen transition-all  z-10 duration-300 ${
+      className={`w-[80%] md:w-[40%] fixed  left-0 top-0 flex flex-col bg-white h-screen transition-all  z-10 duration-300 ${
         isOpen
-          ? "lg:w-[272px] -translate-x-0 lg:translate-x-0 "
-          : "-translate-x-full lg:translate-x-0 lg:w-[70px] items-center px-0"
+          ? "md:w-[272px] -translate-x-0 md:translate-x-0 "
+          : "-translate-x-full md:translate-x-0 md:w-[70px] items-center px-0"
       }`}
     >
       <div

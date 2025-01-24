@@ -40,7 +40,9 @@ export default function Layout({ children }) {
           style={{
             marginLeft: isOpen ? "270px" : "70px",
           }}
-            className={`w-full min-h-screen  transition-all duration-300  overflow-y-scroll pb-2 md:pb-5 `}
+            className={`w-full min-h-screen  transition-all duration-300  overflow-y-scroll pb-2 md:pb-5
+              
+              `}
           >
             <Navbar toggleSidebar={toggleSidebar} />
             <div className="bg-white">

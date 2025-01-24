@@ -52,7 +52,7 @@ const FileUploadCard = () => {
         </div>
         <div className="flex justify-center">
           <label htmlFor="file-upload" className="cursor-pointer">
-            <span className="text-[#2173E3] font-bold pr-2">
+            <span className="text-primary font-bold pr-2">
               Click to upload
             </span>
           </label>
