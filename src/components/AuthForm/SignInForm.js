@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import SocialButtons from "./SocialButtons";
 import "react-phone-input-2/lib/style.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Link from "next/link";

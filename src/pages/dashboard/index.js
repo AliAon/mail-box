@@ -1,6 +1,7 @@
-import ChatItem from "@/components/inbox/chatItem";
+import ChatItems from "@/components/inbox/chat-Items";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import {
   Select,
   SelectContent,
@@ -8,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { DropdownMenu, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import {
   ChevronDown,
   ChevronsLeft,
@@ -18,23 +20,35 @@ import {
 import React, { useState } from "react";
 
 export default function Dashboard() {
-  const [active,setActive]=useState(1)
-  const [ischeck,setIsCheck]=useState(false)
-  console.log("ischeck",ischeck)
+  const [active, setActive] = useState(1);
+  const [ischeck, setIsCheck] = useState(false);
+  console.log("ischeck", ischeck);
   return (
     <div className="py-6 pb-6 px-0 bg-[#f2f6f9]">
       {/* header */}
       <div className="flex  pl-6 pr-2 pb-5 justify-between items-center">
         <div className="flex gap-x-4 items-center">
-          <div className="flex items-end">
-            <Checkbox 
-            onCheckedChange={(value) => {
-              setIsCheck(value)
-
-            }}
-            
-            name="check" />
-            <ChevronDown size={15} />
+          <div className="flex items-end hover:bg-gray-300 px-1 py-2 rounded ">
+            <Checkbox
+              onCheckedChange={(value) => {
+                setIsCheck(value);
+              }}
+              name="check"
+            />
+            <DropdownMenu className="left-[60px]">
+              <DropdownMenuTrigger>
+                <ChevronDown size={15} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent justifyContent="start">
+              
+                <DropdownMenuItem>All</DropdownMenuItem>
+                <DropdownMenuItem>None</DropdownMenuItem>
+                <DropdownMenuItem>Read</DropdownMenuItem>
+                <DropdownMenuItem>Unread</DropdownMenuItem>
+                <DropdownMenuItem>Stared</DropdownMenuItem>
+                <DropdownMenuItem>Unstared</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           <div className="flex gap-x-2  items-center">
             <RotateCw size={20} />
@@ -64,22 +78,57 @@ export default function Dashboard() {
           </Select>
         </div>
       </div>
-      <ChatItem onIsCheck={ischeck} />
+      <ChatItems onIsCheck={ischeck} />
 
       <div className="flex my-10 gap-x-2 justify-center">
-        <Button onClick={() => setActive(0)} variant={`${active===0 ? 'default':'outline'}`}  className={`${active===0 ? 'bg-[#7f63f4]':'bg-[#f2f6f9]' } hover:bg-primary hover:text-white`} size="icon">
+        <Button
+          onClick={() => setActive(0)}
+          variant={`${active === 0 ? "default" : "outline"}`}
+          className={`${
+            active === 0 ? "bg-[#7f63f4]" : "bg-[#f2f6f9]"
+          } hover:bg-primary hover:text-white`}
+          size="icon"
+        >
           <ChevronsLeft />
         </Button>
-        <Button size="sm" onClick={() => setActive(1)} className={`${active===1 ? 'bg-[#7f63f4]':'bg-[#f2f6f9]' } hover:bg-primary hover:text-white`} variant={`${active===1 ? 'default':'outline'}`}>
+        <Button
+          size="sm"
+          onClick={() => setActive(1)}
+          className={`${
+            active === 1 ? "bg-[#7f63f4]" : "bg-[#f2f6f9]"
+          } hover:bg-primary hover:text-white`}
+          variant={`${active === 1 ? "default" : "outline"}`}
+        >
           1
         </Button>
-        <Button size="sm" onClick={() => setActive(2)} className={`${active===2 ? 'bg-[#7f63f4]':'bg-[#f2f6f9]' } hover:bg-primary hover:text-white`} variant={`${active===2 ? 'default':'outline'}`}>
+        <Button
+          size="sm"
+          onClick={() => setActive(2)}
+          className={`${
+            active === 2 ? "bg-[#7f63f4]" : "bg-[#f2f6f9]"
+          } hover:bg-primary hover:text-white`}
+          variant={`${active === 2 ? "default" : "outline"}`}
+        >
           2
         </Button>
-        <Button size="sm" onClick={() => setActive(3)} className={`${active===3 ? 'bg-[#7f63f4]':'bg-[#f2f6f9]' } hover:bg-primary hover:text-white`} variant={`${active===3 ? 'default':'outline' }`}>
+        <Button
+          size="sm"
+          onClick={() => setActive(3)}
+          className={`${
+            active === 3 ? "bg-[#7f63f4]" : "bg-[#f2f6f9]"
+          } hover:bg-primary hover:text-white`}
+          variant={`${active === 3 ? "default" : "outline"}`}
+        >
           3
         </Button>
-        <Button onClick={() => setActive(4)} variant={`${active===4 ? 'default':'outline'}`}  className={`${active===4 ? 'bg-[#7f63f4]':'bg-[#f2f6f9]' } hover:bg-primary hover:text-white`} size="sm">
+        <Button
+          onClick={() => setActive(4)}
+          variant={`${active === 4 ? "default" : "outline"}`}
+          className={`${
+            active === 4 ? "bg-[#7f63f4]" : "bg-[#f2f6f9]"
+          } hover:bg-primary hover:text-white`}
+          size="sm"
+        >
           <ChevronsRight />
         </Button>
       </div>

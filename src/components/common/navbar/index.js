@@ -59,31 +59,7 @@ export function Navbar({ toggleSidebar }) {
             <img src="./assets/png/nav-icon2.png" alt="" width="6px" />
           </div>
         </div>
-        {/* <div className="xl:flex items-center space-x-2 hidden">
-          <NotebookPen color="#858d9d" />
-        </div>
-        <div className="xl:flex items-center space-x-2 hidden">
-          <FolderMinus color="#858d9d" />
-        </div> */}
-        {/* <div className="xl:flex items-center space-x-2 hidden">
-          <Tag color="#858d9d" />
-        </div> */}
-        {/* 
-        <div className="hidden md:block">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild className=" p-2 bg-white">
-              <div className="flex items-center space-x-2 cursor-pointer">
-                <EllipsisVertical className="h-8 w-8 opacity-50" />
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div> */}
+        
         <Image
           src={"/assets/svg/side-bar/Collaps.svg"}
           alt=""
